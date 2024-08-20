@@ -20,7 +20,8 @@ class Home extends Component {
             <Carousel
               onSlide={(i) => {
                 console.log("slidecambiata", i);
-                // dobbiamo settare il setState() per cambiare il componente di stato come nuova active slide
+                // dobbiamo settare il setState() per cambiare il componente
+                // di stato come nuova active slide
                 this.setState({
                   activePasta: pastasciutte[i],
                 });

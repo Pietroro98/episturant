@@ -1,5 +1,5 @@
 import { Container, Row, Col, Carousel } from "react-bootstrap";
-// import pastasciutte from '../Data/mnu.json'
+import pastasciutte from '../Data/Menu.json'
 
 const Home = function () {
   return (
@@ -15,9 +15,9 @@ const Home = function () {
           <Carousel>
 
 
-            {/* {pastasciutte.map((pasta) =>{
+            { pastasciutte.map((pasta) =>{
         return (
-            <Carousel.Item>
+            <Carousel.Item key={pasta.id}>
               <img className="w-100" src={pasta.image} alt="pasta pic"></img>
                 <Carousel.Caption>
                 <h3>{pasta.name}</h3>
@@ -27,9 +27,9 @@ const Home = function () {
               </Carousel.Caption>
             </Carousel.Item> 
         )
-    })}  */}
+    })} 
 
-    
+
           </Carousel>
         </Col>
       </Row>

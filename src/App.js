@@ -1,7 +1,8 @@
-import logo from './logo.svg';
+
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'; //importo bootstrap per farlo funzionare
 import CustomNavbar from './components/CustomNavbar';
+import Home from './components/Home';
 
 
 function App() {
@@ -11,7 +12,7 @@ function App() {
       <CustomNavbar/>
     </header>
     <main>
-    <h2 className='text-center mt-5'>il carosello andrà qui</h2>
+    <Home/>
     </main>
     </div>
   );

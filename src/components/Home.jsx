@@ -17,9 +17,15 @@ class Home extends Component {
         </Row>
         <Row className="justify-content-center">
           <Col xs={12} md={6} lg={4}>
-            <Carousel onSlide={(i) => {
-                console.log('slidecambiata', i )
-            }}>
+            <Carousel
+              onSlide={(i) => {
+                console.log("slidecambiata", i);
+                // dobbiamo settare il setState() per cambiare il componente di stato come nuova active slide
+                this.setState({
+                  activePasta: pastasciutte[i],
+                });
+              }}
+            >
               {pastasciutte.map((pasta) => {
                 return (
                   <Carousel.Item key={pasta.id}>

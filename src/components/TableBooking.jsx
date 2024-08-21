@@ -42,6 +42,7 @@ class TableBooking extends Component {
                   onChange={(e) => {
                     this.setState({
                       reservation: {
+                        ...this.state.reservation,
                         name: e.target.value,
                       },
                     });

@@ -56,9 +56,9 @@ class Home extends Component { // stiamo creando un vero e proprio componente re
           <Col>
             <ListGroup className="text-center">
               {this.state.activePasta.comments.map((c) => { // legge i commenti della lista e li fa cambiare con il .map()
-                return (
-                  <ListGroup.Item key={c.id}>
-                    {c.rating} | {c.comment}
+                return (   //generiamo le liste per quanto sono i commenti, 
+                  <ListGroup.Item key={c.id}> 
+                    {c.rating} | {c.comment}  {/* prende il commento con "c." */}
                   </ListGroup.Item>
                 );
               })}

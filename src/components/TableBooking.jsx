@@ -60,15 +60,15 @@ class TableBooking extends Component {
                   type="tel"
                   placeholder="Numero di telefono:"
                   required
-                  onChange={(e) => this.handleChange(e, 'phone')}
-                //   onChange={(e) => {
-                //     this.setState({
-                //       reservation: {
-                //         ...this.state.reservation,
-                //         phone: e.target.value,
-                //       },
-                //     });
-                //   }}
+                  onChange={(e) => this.handleChange(e, "phone")}
+                  //   onChange={(e) => {
+                  //     this.setState({
+                  //       reservation: {
+                  //         ...this.state.reservation,
+                  //         phone: e.target.value,
+                  //       },
+                  //     });
+                  //   }}
                   value={this.state.reservation.phone}
                 />
               </Form.Group>
@@ -77,15 +77,15 @@ class TableBooking extends Component {
                 <Form.Label>numero di persone</Form.Label>
                 <Form.Select
                   required
-                  onChange={(e) => this.handleChange(e, 'numberOfPeople')}
-                //   onChange={(e) => {
-                //     this.setState({
-                //       reservation: {
-                //         ...this.state.reservation,
-                //         numberOfPeople: e.target.value,
-                //       },
-                //     });
-                //   }}
+                  onChange={(e) => this.handleChange(e, "numberOfPeople")}
+                  //   onChange={(e) => {
+                  //     this.setState({
+                  //       reservation: {
+                  //         ...this.state.reservation,
+                  //         numberOfPeople: e.target.value,
+                  //       },
+                  //     });
+                  //   }}
                   value={this.state.reservation.numberOfPeople}
                 >
                   <option>1</option>
@@ -98,15 +98,14 @@ class TableBooking extends Component {
                 <Form.Check
                   type="checkbox"
                   label="Tavolo Fumatori?"
-                  onChange={(e) => this.handleChange(e, 'smoking')}
-                //   onChange={(e) => {
-                //     this.setState({
-                //       reservation: {
-                //         ...this.state.reservation,
-                //         smoking: e.target.checked,
-                //       },
-                //     });
-                //   }}
+                  onChange={(e) => {
+                    this.setState({
+                      reservation: {
+                        ...this.state.reservation,
+                        smoking: e.target.checked,
+                      },
+                    });
+                  }}
                   checked={this.state.reservation.smoking}
                 />
               </Form.Group>
@@ -116,15 +115,15 @@ class TableBooking extends Component {
                 <Form.Control
                   type="datetime-local"
                   required
-                  onChange={(e) => this.handleChange(e, 'dateTime')}
-                //   onChange={(e) => {
-                //     this.setState({
-                //       reservation: {
-                //         ...this.state.reservation,
-                //         dateTime: e.target.value,
-                //       },
-                //     });
-                //   }}
+                  onChange={(e) => this.handleChange(e, "dateTime")}
+                  //   onChange={(e) => {
+                  //     this.setState({
+                  //       reservation: {
+                  //         ...this.state.reservation,
+                  //         dateTime: e.target.value,
+                  //       },
+                  //     });
+                  //   }}
                   value={this.state.reservation.dateTime}
                 />
               </Form.Group>
@@ -135,15 +134,15 @@ class TableBooking extends Component {
                   as="textarea"
                   rows={5}
                   placeholder="Inserisci qui eventuali richieste speciali..."
-                  onChange={(e) => this.handleChange(e, 'specialRequests')}
-                //   onChange={(e) => {
-                //     this.setState({
-                //       reservation: {
-                //         ...this.state.reservation,
-                //         specialRequests: e.target.value,
-                //       },
-                //     });
-                //   }}
+                  onChange={(e) => this.handleChange(e, "specialRequests")}
+                  //   onChange={(e) => {
+                  //     this.setState({
+                  //       reservation: {
+                  //         ...this.state.reservation,
+                  //         specialRequests: e.target.value,
+                  //       },
+                  //     });
+                  //   }}
                   value={this.state.reservation.specialRequests}
                 />
               </Form.Group>

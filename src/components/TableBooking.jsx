@@ -33,7 +33,7 @@ class TableBooking extends Component {
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Nome</Form.Label>
                 <Form.Control
-                  type="email"
+                  type="text"
                   placeholder="Come ti chiami?"
                   required
                   //salviamo nello stato ogni lettera inserita

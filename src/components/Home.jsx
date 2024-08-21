@@ -1,6 +1,7 @@
-import { Container, Row, Col, Carousel, ListGroup } from "react-bootstrap";
+import { Container, Row, Col, Carousel, } from "react-bootstrap";
 import pastasciutte from "../Data/Menu.json";
 import { Component } from "react";
+import PastaReviews from "./PastaReviews"
 
 class Home extends Component { // stiamo creando un vero e proprio componente react
   //memoria del componente, active pasta sarebbe quella attiva
@@ -52,19 +53,8 @@ class Home extends Component { // stiamo creando un vero e proprio componente re
             </Carousel>
           </Col>
         </Row>
-        <Row className="justify-content-center">
-          <Col>
-            <ListGroup className="text-center">
-              {this.state.activePasta.comments.map((c) => { // legge i commenti della lista e li fa cambiare con il .map()
-                return (   //generiamo le liste per quanto sono i commenti, 
-                  <ListGroup.Item key={c.id}> 
-                    {c.rating} | {c.comment}  {/* prende il commento con "c." */}
-                  </ListGroup.Item>
-                );
-              })}
-            </ListGroup>
-          </Col>
-        </Row>
+        <PastaReviews activePasta={this.state.activePasta}/>
+        {/* stiamo fornendo al compoinent quale e la pasta attiva tramite il componente padre */}
       </Container>
     );
   }

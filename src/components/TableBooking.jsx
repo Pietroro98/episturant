@@ -36,6 +36,16 @@ class TableBooking extends Component {
                   type="email"
                   placeholder="Come ti chiami?"
                   required
+                  //salviamo nello stato ogni lettera inserita
+                  //con questo imput dobbiamo riempire la proprietà name dentro reservation nello satte
+                  // funzione per gestire gli eventi di modifica del DOM
+                  onChange={(e) => {
+                    this.setState({
+                      reservation: {
+                        name: e.target.value,
+                      },
+                    });
+                  }}
                 />
               </Form.Group>
 

@@ -54,7 +54,7 @@ class Home extends Component { // stiamo creando un vero e proprio componente re
           </Col>
         </Row>
         <PastaReviews activePasta={this.state.activePasta}/>
-        {/* stiamo fornendo al compoinent quale e la pasta attiva tramite il componente padre */}
+        {/* stiamo fornendo al component quale e la pasta attiva tramite il componente padre, e questà sarà la props */}
       </Container>
     );
   }

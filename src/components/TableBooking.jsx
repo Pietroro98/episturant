@@ -2,6 +2,7 @@
 // questo componente per far funzionare il form avrà bisogno dello state()
 
 import { Component } from "react";
+
 import { Container, Row, Col, Form, Button, Alert } from "react-bootstrap";
 
 // table booking appunto avrà un form con i 6 seguenti campi:
@@ -12,17 +13,20 @@ import { Container, Row, Col, Form, Button, Alert } from "react-bootstrap";
 // 5- dateTime ---> string (ISO date)
 // 6-  specialRequests ---> string
 
-class TableBooking extends Component {
-  state = {
-    reservation: {
-      name: "",
-      phone: "",
-      numberOfPeople: 1,
-      smoking: false,
-      dateTime: "",
-      specialRequests: "",
-    },
-  };
+
+  class TableBooking extends Component {
+    state = {
+      reservation: {
+        // lo stato iniziale del componente
+        // che in questo rappresenta anche lo stato iniziale del form
+        name: '',
+        phone: '',
+        numberOfPeople: 1,
+        smoking: false,
+        dateTime: '',
+        specialRequests: '',
+      },
+    }
 
   // funzione oncgange per tutto
   handleChange = (e, property) => {
@@ -30,51 +34,53 @@ class TableBooking extends Component {
       reservation: {
         ...this.state.reservation,
         [property]: e.target.value,
+        // property è una stringa, arriva dall'invocazione del metodo all'interno
+        // degli onChange dei vari input; potrebbe essere ad es. "name", oppure
+        // "numberOfPeople" etc.
+        // per poter "calcolare" il valore di property ed utilizzarlo come
+        // nome della proprietà del nuovo oggetto reservation, lo utilizziamo
+        // tramite le [ ] sfruttando la "square brackets notation"
       },
-    });
-  };
-
-  handleSubmitAsyncAwait = async (e) => {
-  e.preventDefault();
-
-  try {
-    // Invio dei dati alla API di Epicode per salvare la prenotazione
-    const response = await fetch("https://striveshool-api.herokuapp.com/api/reservation", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json", 
-      },
-      body: JSON.stringify(this.state.reservation), // Corretto 'Json.stringify' a 'JSON.stringify'
-    });
-
-    if (response.ok) {
-      // Prenotazione salvata correttamente
-      console.log("Prenotazione salvata");
-      alert("Grazie! La tua prenotazione è stata salvata.");
-      // reset dello stato della prenotazione
-
-      this.setState({
-        reservation: {
-            name: "",
-            phone: "",
-            numberOfPeople: 1,
-            smoking: false,
-            dateTime: "",
-            specialRequests: "",
-        },
-      });
-
-    } else {
-      // Gestione degli errori se la risposta non è ok
-      console.error("Errore durante il salvataggio della prenotazione:", response.statusText);
-      alert("Si è verificato un errore. Riprova più tardi.");
-    }
-  } catch (error) {
-    // Gestione degli errori della rete o di altro tipo
-    console.log("Errore durante la richiesta:", error);
-    alert("Si è verificato un errore. Riprova più tardi.");
+    })
   }
-};
+
+  handleSubmit = (e) => {
+    e.preventDefault()
+    // ora inviamo i dati alle API di EPICODE per salvare la prenotazione
+    // inviamo i dati tramite una chiamata con metodo 'POST'
+    fetch('https://striveschool-api.herokuapp.com/api/reservation', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(this.state.reservation),
+    })
+      .then((response) => {
+        if (response.ok) {
+          console.log('prenotazione salvata')
+          alert('grazie!')
+          // dobbiamo svuotare i campi!
+          // per farlo resettiamo lo stato, così i campi si svuoteranno da soli
+          this.setState({
+            reservation: {
+              // lo stato iniziale del componente
+              name: '',
+              phone: '',
+              numberOfPeople: '1',
+              smoking: false,
+              dateTime: '',
+              specialRequests: '',
+            },
+          })
+        } else {
+          alert('riprova più tardi')
+          throw new Error('errore!')
+        }
+      })
+      .catch((err) => {
+        alert(err)
+      })
+  }
 
   render() {
     return (

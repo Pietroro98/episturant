@@ -71,7 +71,7 @@ class TableBooking extends Component {
     }
   } catch (error) {
     // Gestione degli errori della rete o di altro tipo
-    console.error("Errore durante la richiesta:", error);
+    console.log("Errore durante la richiesta:", error);
     alert("Si è verificato un errore. Riprova più tardi.");
   }
 };

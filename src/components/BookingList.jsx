@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Container, Row, Col, ListGroup } from "react-bootstrap";
+import { Container, Row, Col, ListGroup, Alert } from "react-bootstrap";
 import Spinner from "react-bootstrap/Spinner";
 
 class BookingList extends Component {
@@ -8,6 +8,7 @@ class BookingList extends Component {
     // per questo motivo inizializzo la proprietà dello stato in cui le salverò
     // come un ARRAY VUOTO
     isLoading: true,
+    isError: false,
   };
 
   // tutti i nostri metodi personalizzati all'interno della classe devono
@@ -51,6 +52,7 @@ class BookingList extends Component {
         this.setState({
           reservations: arrayOfReservations,
           isLoading: false,
+          isError: true,
           // salva l'array di prenotazioni nello stato, prendendo il posto
           // dell'array vuoto con cui avevamo inizializzato il componente
 
@@ -76,7 +78,15 @@ class BookingList extends Component {
           <Col xs={12} md={6}>
             <h2 className="text-center mb-3">Prenotazioni esistenti</h2>
             <div className="d-flex justify-content-center mb-3">
-              {this.state.isLoading && (<Spinner animation="border" variant="info" />)}
+              {this.state.isLoading && (
+                <Spinner animation="border" variant="info" />
+              )}
+              {this.state.isError && (
+                <Alert variant="danger">
+                  Ops! Qualcosa è andato storto
+                  <i className="bi bi-exclamation-triangle"></i>
+                </Alert>
+              )}
             </div>
             <ListGroup>
               {/* impostiamo ora le regole del nostro componente React! */}

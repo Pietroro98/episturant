@@ -4,6 +4,7 @@ import CustomNavbar from "./components/CustomNavbar";
 import Home from "./components/Home";
 import TableBooking from "./components/TableBooking";
 import BookingList from "./components/BookingList"
+import "bootstrap-icons/font/bootstrap-icons.css"
 
 function App() {
   return (

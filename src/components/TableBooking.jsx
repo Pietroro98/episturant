@@ -5,6 +5,7 @@ import { Component } from "react";
 
 import { Container, Row, Col, Form, Button, Alert } from "react-bootstrap";
 
+
 // table booking appunto avrà un form con i 6 seguenti campi:
 // 1- name --> string
 // 2- phone ---> stringa o numero
